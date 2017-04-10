@@ -23,3 +23,14 @@ pecl install "channel://pecl.php.net/zmq-1.1.3"
 echo 'extension=zmq.so' > /etc/php/7.0/mods-available/zmq.ini
 echo 'extension=zmq.so' > /etc/php/7.0/cli/conf.d/20-zmq.ini
 ln -s /etc/php/7.0/mods-available/zmq.ini /etc/php/7.0/apache2/conf.d/zmq.ini
+
+
+
+apt-get install -y npm
+
+
+apt-get install -y apache2
+
+
+
+a2enmod rewrite
