@@ -1,12 +1,19 @@
 sudo -s
 apt-get update && apt-get upgrade && apt-get dist-upgrade -y
 
+
 apt-get install -y pkg-config
 
 apt-get install -y vim
 apt-get install -y wget
 apt-get install -y git
 apt-get install -y screen
+
+
+echo 'deb http://ftp.de.debian.org/debian sid main ' >> /etc/apt/sources.list
+apt-get update
+apt-get install -y memcached
+
 
 
 
@@ -16,6 +23,26 @@ wget https://www.dotdeb.org/dotdeb.gpg && apt-key add dotdeb.gpg
 apt-get update
 apt-get install -y php7.0
 apt-get install -y php7.0-dev
+
+apt-get install -y php7.0-json
+apt-get install -y php7.0-mcrypt
+apt-get install -y php7.0-zlib
+apt-get install -y php7.0-zip
+apt-get install -y php7.0-mbstring
+apt-get install -y php7.0-tokenizer
+apt-get install -y php7.0-fpm
+apt-get install -y php7.0-gd
+apt-get install -y php7.0-mysql
+apt-get install -y php7.0-cli
+apt-get install -y php7.0-common
+apt-get install -y php7.0-curl
+apt-get install -y php7.0-opcache
+apt-get install -y php7.0-json
+apt-get install -y php7.0-imap
+
+apt-get install -y php-memcached
+
+
 apt-get install -y libzmq3-dev
 apt-get install -y php-pear
 pecl channel-update pecl.php.net
@@ -32,5 +59,16 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 mv composer.phar /usr/local/bin/composer
+
+
+
+a2enmod rewrite
+service apache2 restart
+
+echo "Installing postgres"
+apt-get install -y postgresql-9.4 postgresql-client-9.4
+apt-get install -y php7.0-pgsql
+
+
 
 
