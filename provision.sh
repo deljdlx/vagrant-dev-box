@@ -23,8 +23,8 @@ wget https://www.dotdeb.org/dotdeb.gpg && apt-key add dotdeb.gpg
 apt-get update
 apt-get install -y php7.0
 apt-get install -y php7.0-dev
-
 apt-get install -y php7.0-json
+
 apt-get install -y php7.0-mcrypt
 apt-get install -y php7.0-zlib
 apt-get install -y php7.0-zip
@@ -40,10 +40,10 @@ apt-get install -y php7.0-opcache
 apt-get install -y php7.0-json
 apt-get install -y php7.0-imap
 
+
 apt-get install -y php-memcached
-
-
 apt-get install -y libzmq3-dev
+
 apt-get install -y php-pear
 pecl channel-update pecl.php.net
 
@@ -62,12 +62,30 @@ mv composer.phar /usr/local/bin/composer
 
 
 
+
 a2enmod rewrite
 service apache2 restart
 
 echo "Installing postgres"
 apt-get install -y postgresql-9.4 postgresql-client-9.4
 apt-get install -y php7.0-pgsql
+
+apt-get install -y libzmq3-dev
+pecl install "channel://pecl.php.net/zmq-1.1.3"
+echo 'extension=zmq.so' > /etc/php/7.0/mods-available/zmq.ini
+echo 'extension=zmq.so' > /etc/php/7.0/cli/conf.d/20-zmq.ini
+ln -s /etc/php/7.0/mods-available/zmq.ini /etc/php/7.0/apache2/conf.d/zmq.ini
+
+
+
+
+echo 'deb http://nginx.org/packages/mainline/debian/ jessie nginx' >> /etc/apt/sources.list
+wget http://nginx.org/keys/nginx_signing.key
+apt-key add nginx_signing.key
+apt-get update
+apt-get install -y nginx
+
+
 
 
 
