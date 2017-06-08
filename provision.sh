@@ -36,6 +36,7 @@ apt-get install -y php7.0-curl
 apt-get install -y php7.0-opcache
 apt-get install -y php7.0-json
 apt-get install -y php7.0-imap
+apt-get install -y php7.0-xdebug
 
 
 apt-get install -y php-pear
@@ -49,6 +50,10 @@ php -r "unlink('composer-setup.php');"
 
 mv composer.phar /usr/local/bin/composer
 
+pecl install Xdebug
+echo '[xdebug]' >> /etc/php/7.0/mods-available/Xdebug.ini
+echo 'zend_extension="/usr/lib64/php/modules/xdebug.so"' >> /etc/php/7.0/mods-available/Xdebug.ini
+echo 'xdebug.remote_enable = 1' >> /etc/php/7.0/mods-available/Xdebug.ini
 
 
 
