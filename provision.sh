@@ -10,6 +10,9 @@ apt-get update && apt-get upgrade && apt-get dist-upgrade -y
 
 apt-get install -y pkg-config
 
+
+apt-get install ca-certificates
+
 apt-get install -y vim
 apt-get install -y wget
 apt-get install -y git
@@ -55,6 +58,7 @@ apt-get install -y php7.0-curl
 apt-get install -y php7.0-opcache
 apt-get install -y php7.0-json
 apt-get install -y php7.0-imap
+apt-get install -y php7.0-sqlite3
 apt-get install -y php7.0-xdebug
 
 echo '====Install PEAR'
