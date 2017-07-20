@@ -19,6 +19,11 @@ apt-get install -y git
 apt-get install -y screen
 
 
+echo '====Samba utils'
+apt-get install -y smbclient
+apt-get install -y cifs-utils
+
+
 echo '====Install Virtualbox'
 echo 'deb http://ftp.debian.org/debian jessie-backports main contrib' >> /etc/apt/sources.list
 apt-get update
