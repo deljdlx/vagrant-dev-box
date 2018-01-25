@@ -46,8 +46,8 @@ config.vm.network "public_network"
 # config.vm.synced_folder "../data", "/vagrant_data"
 
 
-config.vm.synced_folder "D:/jdelsescaux/shared", "/shared", type: "virtualbox",
-    id: "f3d3686f3c58e25ad1228cc52e7dca0395de905d"
+#config.vm.synced_folder "C:/shared", "/shared", type: "virtualbox",
+#    id: "f3d3686f3c58e25ad1228cc52e7dca0395de905d"
 
 
 
